@@ -10,12 +10,12 @@
 5. Выход
 
 **Cтатическая библиотека libcalc.a**:
--int add(int a, int b);
--int sub(int a, int b);
--int mul(int a, int b);
--int div(int a, int b);
+- int add(int a, int b);
+- int sub(int a, int b);
+- int mul(int a, int b);
+- int div(int a, int b);
 
 **Для запуска программы**:
--Зайти в папку `src`
--Ввести команду `make`
--Зпустить бинарный файл `./calculator`
+- Зайти в папку `src`
+- Ввести команду `make`
+- Зпустить бинарный файл `./calculator`
