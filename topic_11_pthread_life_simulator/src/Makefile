@@ -14,8 +14,10 @@ all: $(BIN)
 $(BIN): $(OBJ)
 	$(CC) $(CFLAGS) $(THREAD_FLAGS) $^ -o $@
 
-%.o: %.c $(HDR)
-	$(CC) $(CFLAGS) $(THREAD_FLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) $(THREAD_FLAGS) $^ -c
+
+$(BIN): $(HDR)
 
 run: $(BIN)
 	./$(BIN)
