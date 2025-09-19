@@ -47,13 +47,6 @@ int main(void){
     serv_tcp.sin_addr.s_addr = INADDR_ANY;
     serv_tcp.sin_port = htons(PORT);
 
-    int reuse = 1;
-    if (setsockopt(fd_tcp, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse)) == -1) {
-        perror("setsockopt TCP failed");
-        close(fd_tcp);
-        exit(EXIT_FAILURE);
-    }
-
     if(bind(fd_tcp, (struct sockaddr*)&serv_tcp, sizeof(serv_tcp)) == -1){
         perror("failed bind tcp");
         close(fd_tcp);
@@ -78,13 +71,6 @@ int main(void){
     serv_udp.sin_family = AF_INET;
     serv_udp.sin_addr.s_addr = INADDR_ANY;
     serv_udp.sin_port = htons(PORT);
-
-    if (setsockopt(fd_udp, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse)) == -1) {
-        perror("setsockopt UDP failed");
-        close(fd_tcp);
-        close(fd_udp);
-        exit(EXIT_FAILURE);
-    }
 
     if(bind(fd_udp, (struct sockaddr*)&serv_udp, sizeof(serv_udp)) == -1){
         perror("failed bind udp");
